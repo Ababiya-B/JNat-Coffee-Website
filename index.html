@@ -9,20 +9,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --cream:#F8F5F0;
+    --cream:#EEE9DF;
     --paper:#FFFFFF;
-    --ink:#1C1917;
-    --brown:#292524;
-    --clay:#78716C;
-    --clay-soft:#A8A29E;
-    --line:#E7E5E4;
-    --green:#40534C;
-    --cover:#1C1917;
-    --cover-light:#292524;
-    --gold:#D4AF37;
+    --ink:#1B2632;
+    --brown:#2C3B4D;
+    --clay:#A35139;
+    --clay-soft:#C9C1B1;
+    --line:#C9C1B1;
+    --green:#3A5F43;
+    --cover:#1B2632;
+    --cover-light:#2C3B4D;
+    --gold:#FFB162;
     --danger:#991B1B;
-    --surface:#F5F1EA;
-    --home-bg:#E8DDCA;
+    --surface:#EEE9DF;
+    --home-bg:#EEE9DF;
   }
 
   *{box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent;}
@@ -598,177 +598,736 @@ function icon(name){ return ICON[name] || ICON.cup; }
 
 /* ================= Data ================= */
 const CATEGORIES = [
-  { id:'breakfast', tab:'Breakfast', en:'Breakfast', am:'ቁርስ', ic:'cup',
-    blurb:'Eggs, fool and fetira, made the way mornings in Addis call for.',
-    items:[
-      ['Scrambled egg','እንቁላል ፍርፍር',220],
-      ['Scrambled egg with meat','እንቁላል ፍርፍር በስጋ',320],
-      ['Egg sauce','እንቁላል ስልስ',270],
-      ['Fool','ፉል',170],
-      ['Fool with tuna','ፉል በ ቱና',250],
-      ['Special fool','እስፔሻል ፉል',220],
-      ['Chechebesa','ጨጨብሳ',220],
-      ['Special chechebesa','እስፔሻል ጨጨብሳ',270],
-      ['Special sandwich','እስፔሻል ሳንድዊች',400],
-      ['Egg sandwich','እንቁላል ሳንድዊች',300],
-      ['Tuna sandwich','ቱና ሳንድዊች',400],
-      ['Chicken sandwich','ቺክን ሳንድዊች',450],
-      ['Veggie sandwich','አትክልት ሳንድዊች',280],
-      ['Club sandwich','ክለብ ሳንድዊች',500],
-      ['Waffle','ዋፍል',300],
-      ['French toast','ፍሬንች ቶስት',300],
-      ['Kinche','ቅንጭ',300],
-      ['Fasting fetira','የፆም ፈጢራ',280],
-      ['Fetira with egg','ፈጢራ በ እንቁላል',380],
-      ['Special fetira','እስፔሻል ፈጢራ',450],
+  {
+    "id": "breakfast",
+    "tab": "Breakfast",
+    "en": "Breakfast",
+    "am": "ቁርስ",
+    "ic": "cup",
+    "blurb": "Eggs, fool and fetira, made the way mornings in Addis call for.",
+    "items": [
+      [
+        "Scrambled Egg",
+        "እንቁላል ፍርፍር",
+        220
+      ],
+      [
+        "Scrambled Egg with Meat",
+        "እንቁላል ፍርፍር በስጋ",
+        320
+      ],
+      [
+        "Egg Sauce",
+        "እንቁላል ስልስ",
+        270
+      ],
+      [
+        "Foul",
+        "ፉል",
+        170
+      ],
+      [
+        "Foul with Tuna",
+        "ፉል በ ቱና",
+        300
+      ],
+      [
+        "Foul With Avocado",
+        "ፉል በ አቮካዶ",
+        200
+      ],
+      [
+        "Special Foul",
+        "እስፔሻል ፉል",
+        250
+      ],
+      [
+        "Chechebesa",
+        "ጨጨብሳ",
+        220
+      ],
+      [
+        "Special Chechebesa",
+        "እስፔሻል ጨጨብሳ",
+        270
+      ],
+      [
+        "Special Sandwich",
+        "እስፔሻል ሳንድዊች",
+        400
+      ],
+      [
+        "Egg Sandwich",
+        "እንቁላል ሳንድዊች",
+        300
+      ],
+      [
+        "Tuna Sandwich",
+        "ቱና ሳንድዊች",
+        400
+      ],
+      [
+        "Chiken Sandwich",
+        "ቺክና  ሳንድዊች",
+        450
+      ],
+      [
+        "Beef Sandwich",
+        "ቢፍ  ሳንድዊች",
+        380
+      ],
+      [
+        "Veggie Sandwich",
+        "አትክልት ሳንድዊች",
+        280
+      ],
+      [
+        "Club Sandwich",
+        "ክለብ ሳንድዊች",
+        500
+      ],
+      [
+        "French Toast",
+        "ፍሬንች ቶስት",
+        300
+      ],
+      [
+        "Fasting Fetira",
+        "የፆም ፈጢራ",
+        280
+      ],
+      [
+        "Fetira With Egg",
+        "ፈጢራ",
+        380
+      ],
+      [
+        "Special Fetira",
+        "እስፔሻል ፈጢራ",
+        450
+      ]
     ]
   },
-  { id:'lunch', tab:'Lunch', en:'Lunch', am:'ምሳ', ic:'bowl',
-    blurb:'Shiro, tegabino, pasta and firfir. The plates people come back for.',
-    items:[
-      ['Bozena shiro','ቦዘና ሽሮ',350],
-      ['Shiro','ሽሮ',220],
-      ['Shiro with butter','ሽሮ በቅቤ',240],
-      ['Tegabino','ተጋቢኖ',280],
-      ['Pasta with sauce','ፓስታ በስጎ',270],
-      ['Pasta with meat','ፓስታ በስጋ',380],
-      ['Pasta with vegetable','ፓስታ በአትክልት',300],
-      ['Pasta with egg','ፓስታ በ እንቁላል',320],
-      ['Tmatim lebeleb','ቲማቲም ለብለብ',200],
-      ['Tmatim sils','ቲማቲም ስልስ',200],
-      ['Firfir','ፍርፍር',220],
-      ['Firfir with egg','ፍርፍር በእንቁላል',280],
-      ['Tibs firfir','ጥብስ ፍርፍር',370],
-      ['Sega firfir','ስጋ ፍርፍር',320],
-      ['Quanta firfir','ቐንጣ ፍርፍር',420],
-      ['Tibs','ጥብስ',480],
-      ['Dulet','ዱለት',370],
+  {
+    "id": "lunch",
+    "tab": "Lunch",
+    "en": "Lunch",
+    "am": "ምሳ",
+    "ic": "bowl",
+    "blurb": "Shiro, tegabino, pasta and firfir. The plates people come back for.",
+    "items": [
+      [
+        "Bozena Shiro",
+        "ቦዘና ሽሮ",
+        350
+      ],
+      [
+        "Shiro",
+        "ሽሮ",
+        220
+      ],
+      [
+        "Shiro with butter",
+        "ሽሮ በቅቤ",
+        240
+      ],
+      [
+        "Tegabino",
+        "ተጋቢኖ",
+        280
+      ],
+      [
+        "Pasta With Sauce",
+        "ፓስታ በስጎ",
+        270
+      ],
+      [
+        "pasta with Meat",
+        "ፓስታ በስጋ",
+        380
+      ],
+      [
+        "Pasta with Vegetable",
+        "ፓስታ በአትክልት",
+        300
+      ],
+      [
+        "Pasta with Egg",
+        "ፓስታ በ እንቁላል",
+        320
+      ],
+      [
+        "Tmatim Lebeleb",
+        "ቲማቲም ለብለብ",
+        180
+      ],
+      [
+        "Tmatim Lebeleb",
+        "ቲማቲም ስልስ",
+        200
+      ],
+      [
+        "Firfir",
+        "ፍርፍር",
+        220
+      ],
+      [
+        "Firfir With Egg",
+        "ፍርፍር በእንቁላል",
+        280
+      ],
+      [
+        "Tibes firfir",
+        "ጥብስ ፍርፍር",
+        370
+      ],
+      [
+        "Quanta Firfer",
+        "ቐንጣ ፍርፍር",
+        440
+      ],
+      [
+        "Tibes",
+        "ጥብስ",
+        480
+      ],
+      [
+        "Dulete",
+        "ዱለት",
+        370
+      ],
+      [
+        "Teleba Fetefet",
+        "ተልባ ፍትፍት",
+        150
+      ]
     ]
   },
-  { id:'burgers', tab:'Burgers', en:'Burgers and wraps', am:'በርገር እና ሸዋርማ', ic:'bag',
-    blurb:'For when you want something familiar, made well.',
-    groups:[
-      {h:'Burgers / በርገር', items:[
-        ['Special burger','እስፔሻል በርገር',700],
-        ['Double burger','ደብል በርገር',550],
-        ['Beef burger','ቢፍ በርገር',470],
-        ['Chicken burger','ቺክን በርገር',650],
-        ['Cheesy burger','ቺዝ በርገር',500],
-      ]},
-      {h:'Wraps / ሸዋርማ', items:[
-        ['Beef wrap','ቢፍ ሸዋርማ',430],
-        ['Chicken wrap','ቺክን ሸዋርማ',530],
-        ['Tuna wrap','ቱና ሸዋርማ',480],
-        ['Veggie wrap','አትክልት ሸዋርማ',370],
-        ['Special wrap','እስፔሻል ሸዋርማ',600],
-      ]}
+  {
+    "id": "burgers",
+    "tab": "Burgers",
+    "en": "Burgers and wraps",
+    "am": "በርገር እና ሸዋርማ",
+    "ic": "bag",
+    "blurb": "For when you want something familiar, made well.",
+    "groups": [
+      {
+        "h": "Burgers / በርገር",
+        "items": [
+          [
+            "Special Burger",
+            "እስፔሻል በርገር",
+            700
+          ],
+          [
+            "Double Burger",
+            "ደብል በርገር",
+            550
+          ],
+          [
+            "Beef Burger",
+            "ቢፍ በርገር",
+            470
+          ],
+          [
+            "Chiken Burger",
+            "ቺክን በርገር",
+            650
+          ],
+          [
+            "Cheesy Burger",
+            "ቺዝ በርገር",
+            500
+          ]
+        ]
+      },
+      {
+        "h": "Wraps / ሸዋርማ",
+        "items": [
+          [
+            "Beef Wrap",
+            "ቢፍ ሸዋርማ",
+            430
+          ],
+          [
+            "Chicken Wrap",
+            "ቺክን ሸዋርማ",
+            530
+          ],
+          [
+            "Tuna Wrap",
+            "ቱና  ሸዋርማ",
+            480
+          ],
+          [
+            "Veggie Wrap",
+            "አትክልት ሸዋርማ",
+            370
+          ],
+          [
+            "Special Wrap",
+            "እስፔሻል ሸዋርማ",
+            600
+          ]
+        ]
+      }
     ]
   },
-  { id:'pizza', tab:'Pizza', en:'Pizza', am:'ፒዛ', ic:'pizza',
-    blurb:'Baked fresh, sliced and ready for the table.',
-    items:[
-      ['Special pizza','እስፔሻል ፒዛ',750],
-      ['4 saisons pizza','4 ሲዝን ፒዛ',900],
-      ['Margherita pizza','ማርጋሪታ ፒዛ',500],
-      ['Beef pizza','ቢፍ ፒዛ',580],
-      ['Tuna pizza','ቱና ፒዛ',600],
-      ['Veggie pizza','አትክልት ፒዛ',480],
+  {
+    "id": "pizza",
+    "tab": "Pizza",
+    "en": "Pizza",
+    "am": "ፒዛ",
+    "ic": "pizza",
+    "blurb": "Baked fresh, sliced and ready for the table.",
+    "items": [
+      [
+        "Special Pizza",
+        "እስፔሻል ፒዛ",
+        750
+      ],
+      [
+        "4 Saisons Pizza",
+        "4 ሲዝን ፒዛ",
+        900
+      ],
+      [
+        "Margherita Pizza",
+        "ማርጋሪታ ፒዛ",
+        500
+      ],
+      [
+        "Chiken Pizza",
+        "ቺክን ፒዛ",
+        680
+      ],
+      [
+        "Beef Pizza",
+        "ቢፍ ፒዛ",
+        580
+      ],
+      [
+        "Tuna Pizza",
+        "ቱና ፒዛ",
+        600
+      ],
+      [
+        "Tuna With Cheesy Pizza",
+        "ቱና በ ቺዝ ፒዛ",
+        680
+      ],
+      [
+        "Tuna Pizza With Veggie",
+        "ቱና በ አትክልት ፒዛ",
+        630
+      ],
+      [
+        "Veggie Pizza",
+        "አትክልት ፒዛ",
+        480
+      ]
     ]
   },
-  { id:'snacks', tab:'Snacks', en:'Snacks and extras', am:'መክሰስ እና ጭማሪ', ic:'bag',
-    blurb:'Small plates and add ons, for whenever you want a little more.',
-    groups:[
-      {h:'Snacks / መክሰስ', items:[
-        ['Sambusa','ሳምቡሳ',50],
-        ['Ertibe with pita','እርጥብ በቂጣ',200],
-        ['Special ertibe with pita','እስፔሻል እርጥብ በቂጣ',250],
-        ['French fries','ቺብስ',200],
-      ]},
-      {h:'Extras / ጭማሪ', items:[
-        ['Tuna extra','ቱና',100],
-        ['Egg extra','እንቁላል',50],
-        ['Ketchup','ካቻፕ',25],
-        ['Mayonnaise','ማዮኒዝ',50],
-        ['Honey','ማር',25],
-        ['Aluminium foil','አልሙኒም ፎይል',20],
-        ['Yoghurt','እርጎ',20],
-        ['Chilli','ዳጣ',20],
-        ['Syrup','ሲራፕ',25],
-        ['Bread','ዳቦ',20],
-        ['Burger takeaway box','የበርገር ቴካዌ ቦክስ',30],
-        ['Large takeaway cup','ቴካዌ ካፕ ትልቁ',25],
-        ['Coffee takeaway cup','ቴካዌ ካፕ የቡና',15],
-        ['Aluminium takeaway box','አልሙኒየም ቴካዌ ቦክስ',55],
-      ]}
+  {
+    "id": "snacks",
+    "tab": "Snacks",
+    "en": "Snacks and extras",
+    "am": "መክሰስ እና ጭማሪ",
+    "ic": "bag",
+    "blurb": "Small plates and add ons, for whenever you want a little more.",
+    "groups": [
+      {
+        "h": "Snacks / መክሰስ",
+        "items": [
+          [
+            "Sambusa",
+            "ሳምቡሳ",
+            50
+          ],
+          [
+            "Ertebe with Pita",
+            "እርጥብ በቂጣ",
+            200
+          ],
+          [
+            "Special Ertebe with Pita",
+            "እስፔሻል እርጥብ በቂጣ",
+            300
+          ],
+          [
+            "French Fries",
+            "ቺብስ",
+            200
+          ]
+        ]
+      },
+      {
+        "h": "Extras / ጭማሪ",
+        "items": [
+          [
+            "Tuna Extra",
+            "ቱና",
+            100
+          ],
+          [
+            "Egg Extra",
+            "እናንቁላል",
+            50
+          ],
+          [
+            "Ketchup",
+            "ካቻፕ",
+            25
+          ],
+          [
+            "Mayonnaise",
+            "ማዮኒዝ",
+            50
+          ],
+          [
+            "Honey",
+            "ማር",
+            25
+          ],
+          [
+            "Aluminium Foil",
+            "አልሙኒም ፎይል",
+            20
+          ],
+          [
+            "Youghurt",
+            "እርጎ",
+            20
+          ],
+          [
+            "Chille",
+            "ዳጣ",
+            20
+          ],
+          [
+            "Syrup",
+            "ሲራፕ",
+            25
+          ],
+          [
+            "Bread",
+            "ዳቦ",
+            20
+          ],
+          [
+            "Burger Box",
+            "የ በርገር ቴካዌ ቦክስ",
+            30
+          ],
+          [
+            "Bigge Takeaway cup",
+            "ቴካዌ ካፕ ትልቁ",
+            25
+          ],
+          [
+            "Coffee Takeaway cup",
+            "ቴካዌ ካፕ የቡና",
+            15
+          ],
+          [
+            "Pizza Takeaway Box",
+            "የፒዛ ቴካዌ ቦክስ",
+            70
+          ],
+          [
+            "Aluminium Box",
+            "አልሙኒየም ቴካዌ ቦክስ",
+            55
+          ],
+          [
+            "Mlu Enjera",
+            "ሙሉ እንጀራ",
+            30
+          ],
+          [
+            "Gemash Enjera",
+            "ግማሽ እንጀራ",
+            15
+          ]
+        ]
+      }
     ]
   },
-  { id:'coffee', tab:'Coffee', en:'Tea and coffee', am:'ሻይ እና ቡና', ic:'cup',
-    blurb:'This is what we are named for. Brewed slow, served warm.',
-    items:[
-      ['Coffee','ቡና',50],
-      ['Espresso','እስፕሬሶ',70],
-      ['Macchiato','ማኪያቶ',90],
-      ['Steamed milk with coffee','እስቲም ወተት በቡና',115],
-      ['Espresso shot','እስፕሪስ',50],
-      ['Milk','ወተት',95],
-      ['Black tea','ጥቁር ሻይ',40],
-      ['Lemon tea','ሻይ በሎሚ',50],
-      ['Cinnamon tea','ሻይ በቅመም',45],
-      ['Keshir','ቀሽር',50],
-      ['Hibiscus tea','ከርከዴ ሻይ',75],
+  {
+    "id": "coffee",
+    "tab": "Coffee",
+    "en": "Tea and coffee",
+    "am": "ሻይ እና ቡና",
+    "ic": "cup",
+    "blurb": "This is what we are named for. Brewed slow, served warm.",
+    "items": [
+      [
+        "Coffee",
+        "ቡና",
+        50
+      ],
+      [
+        "Espresso",
+        "እስፕሬሶ",
+        80
+      ],
+      [
+        "Machiato",
+        "ማኪያቶ",
+        110
+      ],
+      [
+        "Steamed Milk with coffee",
+        "እስቲም ወተት በቡና",
+        115
+      ],
+      [
+        "Spress",
+        "እስፕሪስ",
+        60
+      ],
+      [
+        "Milk",
+        "ወተት",
+        100
+      ],
+      [
+        "Special Tea",
+        "እስፔሻል ሻይ",
+        170
+      ],
+      [
+        "Black Tea",
+        "ጥቁር ሻይ",
+        40
+      ],
+      [
+        "Lemon Tea",
+        "ሻይ በሎሚ",
+        55
+      ],
+      [
+        "Cinnamon Tea",
+        "ሻይ በቅመም",
+        45
+      ],
+      [
+        "Keshir",
+        "ቀሽር",
+        55
+      ],
+      [
+        "Hibiscus Tea",
+        "ከርከዴ ሻይ",
+        75
+      ]
     ]
   },
-  { id:'cold', tab:'Cold drinks', en:'Cold drinks', am:'ቀዝቃዛ መጠጦች', ic:'drop',
-    blurb:'Iced coffee and hibiscus, for warm afternoons.',
-    items:[
-      ['Iced coffee','አይስ ኮፊ',150],
-      ['Caramel iced coffee','ካራሜል አይስ ኮፊ',150],
-      ['Iced chocolate latte','አይስ ቸኮላት ላቴ',200],
-      ['Iced hibiscus tea','አይስ ከርከዴ',180],
+  {
+    "id": "cold",
+    "tab": "Cold drinks",
+    "en": "Cold drinks",
+    "am": "ቀዝቃዛ መጠጦች",
+    "ic": "drop",
+    "blurb": "Iced coffee and hibiscus, for warm afternoons.",
+    "items": [
+      [
+        "Iced Coffee",
+        "አይስ ኮፊ",
+        150
+      ],
+      [
+        "Caramel Iced Coffee",
+        "ካራሜል አይስ ኮፊ",
+        200
+      ],
+      [
+        "Iced Chocolate Latte",
+        "አይስ ቸኮላት ላቴ",
+        250
+      ],
+      [
+        "Iced Hibiscus Tea",
+        "አይስ ከርከዴ",
+        180
+      ]
     ]
   },
-  { id:'yoghurt', tab:'Yoghurt', en:'Yoghurt and soft drinks', am:'እርጎ እና ለስላሳ መጠጦች', ic:'bowl',
-    blurb:'A lighter option, and the usual bottled favourites.',
-    groups:[
-      {h:'Yoghurt / እርጎ', items:[
-        ['Yoghurt with honey','እርጎ በ ማር',150],
-        ['Yoghurt with red chilli','እርጎ በ ሚጥሚጣ',110],
-        ['Flax','ተልባ',130],
-        ['Flax mix with seasonal fruits','ተልባ በወተት',150],
-      ]},
-      {h:'Soft drinks / ለስላሳ መጠጦች', items:[
-        ['Novida','ኖቪዳ',60],
-        ['Ambo water','አምቦውሃ',60],
-        ['Fanta','ፋንታ',60],
-        ['Sprite','ስፕራይት',60],
-        ['Negus','ንጉስ',90],
-        ['Water, half litre','ውሃ 1/2',40],
-        ['Water, 1 litre','ውሃ 1L',50],
-        ['Water, 2 litre','ውሃ 2L',60],
-      ]}
+  {
+    "id": "yoghurt",
+    "tab": "Yoghurt",
+    "en": "Yoghurt and soft drinks",
+    "am": "እርጎ እና ለስላሳ መጠጦች",
+    "ic": "bowl",
+    "blurb": "A lighter option, and the usual bottled favourites.",
+    "groups": [
+      {
+        "h": "Yoghurt / እርጎ",
+        "items": [
+          [
+            "Yoghurt",
+            "እርጎ",
+            100
+          ],
+          [
+            "Yoghurt with Honey",
+            "በ ማር",
+            150
+          ],
+          [
+            "Yoghurt with Chocolate",
+            "በ ቸኮላት",
+            150
+          ],
+          [
+            "Yoghurt with Red Chili",
+            "በ ሚጥሚጣ",
+            110
+          ],
+          [
+            "Flax",
+            "ተልባ",
+            150
+          ],
+          [
+            "Flax mix with Seasonal Fruits",
+            "ተልባ በወተት",
+            200
+          ]
+        ]
+      },
+      {
+        "h": "Soft drinks / ለስላሳ መጠጦች",
+        "items": [
+          [
+            "Soft Drinks",
+            "/ለስላሳ መጠጦች",
+            60
+          ],
+          [
+            "Ambo",
+            "አምቦውሃ",
+            60
+          ],
+          [
+            "Plastic Soft Drink",
+            "የፕላስቲክ ለስላሳ",
+            80
+          ],
+          [
+            "Priedator Energy",
+            "ፕሬዴተር ኢነርጂ",
+            85
+          ],
+          [
+            "Negus",
+            "ንጉስ",
+            100
+          ],
+          [
+            "Water",
+            "ውሃ 1/2",
+            40
+          ],
+          [
+            "Water",
+            "ውሃ 1L",
+            50
+          ],
+          [
+            "Water",
+            "ውሃ 2L",
+            60
+          ]
+        ]
+      }
     ]
   },
-  { id:'juices', tab:'Juice and mojito', en:'Fresh juices and mojito', am:'ፍሬሽ ጁስ እና ሞጂቶ', ic:'glass',
-    blurb:'Pressed fruit and mint, for a clean finish to any meal.',
-    groups:[
-      {h:'Fresh juices / ፍሬሽ ጁስ', items:[
-        ['Mixed fruit','ሚክስድ',250],
-        ['Mango','ማንጎ',220],
-        ['Papaya','ፓፓያ',200],
-        ['Avocado','አቮካዶ',220],
-      ]},
-      {h:'Mojito / ሞጂቶ', items:[
-        ['Strawberry','እስትሮቨሪ',250],
-        ['Orange','ኦሬንጅ',250],
-        ['Mango','ማንጎ',250],
-        ['Mint','ሜንት',250],
-        ['Apple','አፕል',250],
-        ['Tropical blue','ትሮፒካል ብሉ',250],
-        ['Mango and coconut','ማንጎ እና ኮኮናት',250],
-        ['J Nat special','ጄ ናት እስፔሻል',250],
-      ]}
+  {
+    "id": "juices",
+    "tab": "Juice and mojito",
+    "en": "Fresh juices and mojito",
+    "am": "ፍሬሽ ጁስ እና ሞጂቶ",
+    "ic": "glass",
+    "blurb": "Pressed fruit and mint, for a clean finish to any meal.",
+    "groups": [
+      {
+        "h": "Fresh juices / ፍሬሽ ጁስ",
+        "items": [
+          [
+            "Mix Fruit",
+            "ሚክስድ",
+            250
+          ],
+          [
+            "Mix Fruit With Milk",
+            "ሚክስድ በ ወተት",
+            300
+          ],
+          [
+            "Mango",
+            "ማንጎ",
+            230
+          ],
+          [
+            "Papaya",
+            "ፓፓያ",
+            200
+          ],
+          [
+            "Avocado",
+            "አቮካዶ",
+            220
+          ]
+        ]
+      },
+      {
+        "h": "Mojito / ሞጂቶ",
+        "items": [
+          [
+            "Strawberry",
+            "እስትሮቨሪ",
+            250
+          ],
+          [
+            "Orange",
+            "ኦሬንጅ",
+            250
+          ],
+          [
+            "Mango Mojito",
+            "ማንጎ",
+            250
+          ],
+          [
+            "Mint",
+            "ሜንት",
+            250
+          ],
+          [
+            "Apple",
+            "አፕል",
+            250
+          ],
+          [
+            "Tropical Blue",
+            "ትሮፒካል ብሉ",
+            250
+          ],
+          [
+            "Mango and Coconut Mojito",
+            "ማንጎ እና ኮኮናት",
+            250
+          ],
+          [
+            "J-nate Special Mojito",
+            "ጄ-ናት እስፔሻል",
+            300
+          ]
+        ]
+      }
     ]
-  },
+  }
 ];
 
 /* flatten every item into one lookup with a stable id and its category icon */
@@ -910,7 +1469,10 @@ function renderHome(){
       <div class="row"><span>Telebirr</span><span>0908488848</span></div>
     </div>
 
-    <div class="made-by">Menu by <a href="https://emberstudios.vercel.app/" target="_blank" rel="noopener">Ember Studios</a> &middot; Addis Ababa</div>
+    <div class="made-by" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+      <img src="img/benaiah_logo.png" alt="Benaiah Creatives" style="height: 32px; width: 32px; border-radius: 50%; object-fit: cover; opacity: 0.9;">
+      <span>Menu by <a href="#" target="_blank" rel="noopener">Benaiah Creatives</a> &middot; Addis Ababa</span>
+    </div>
   `;
 }
 
